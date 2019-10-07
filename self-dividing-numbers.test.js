@@ -5,22 +5,23 @@
  */
 var selfDividingNumbers = function (left, right) {
 
-  let range = []
-  for (i = left; i <= right; i++)
-    range.push(i)
-
   let numbers = []
-  for (number of range) {
+
+  for (number = left; number <= right; number++) {
     if (number === 0 || number % 10 === 0) continue;
+    if (number < 10) {
+      numbers.push(number);
+    } else {
 
-    let splitted = number.toString().split('')
-    let isSelfDiv = true;
+      let splitted = number.toString().split('')
+      let isSelfDiv = true;
 
-    for (part of splitted) {
-      if (number % part !== 0) isSelfDiv = false;
-    }        
+      for (part of splitted) {
+        if (number % part !== 0) isSelfDiv = false;
+      }
 
-    if (isSelfDiv) numbers.push(number);
+      if (isSelfDiv) numbers.push(number);
+    }
   }
 
   return numbers
